@@ -1,3 +1,4 @@
+import 'package:aprendiendo_dart_flutter/src/screens/Button_Custom.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -20,15 +21,26 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
 
         title: Text(widget.title),
+
       ),
-      body: customContainer(), //Invocamos el método customcontainer creado abajo
-      //floatingActionButton: FloatingActionButton(
-       // onPressed: _incrementCounter,
-        //tooltip: 'Increment',
-        //child: Icon(Icons.add),
-      //), // This trailing comma makes auto-formatting nicer for build methods.
+      body: Center( //Centrado del botón
+        child: CustomGradientButton(text: Text('Costa Rica'), //Texto del Botón
+          width: 150, //ancho
+          height: 40, //alto
+          gradientColors: [Colors.blue, Colors.white, Colors.red], //colores de la bandera
+          initialPosition: Alignment.centerLeft, //posición inicial
+          finalPosition: Alignment.centerRight, //posicion final
+          function: () => print('Mi primer botón en Flutter!!!'),
+          leadingIcon: Icon(Icons.person),
+          finalIcon: Icon(Icons.explore),
+        ),
+
+      ),
     );
   }
+  /**
+   * Código acerca de un container y sus diferentes propiedades
+   */
   Widget customContainer(){
     return Container(
       width: double.infinity, //Ancho del container utilizando double.infinity, el cual acapara todo el ancho
@@ -50,3 +62,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
